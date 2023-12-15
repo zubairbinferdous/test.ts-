@@ -12,7 +12,7 @@
   console.log(result);
   console.log(result2);
   //////////////////////////////////////////// 1
-  interface person {
+  interface Person {
     name: string;
     address?: {
       city: string;
@@ -20,7 +20,7 @@
     };
     phone?: number;
   }
-  const user: person = {
+  const user: Person = {
     name: "user1",
     address: {
       city: "Dhaka",
@@ -28,10 +28,10 @@
     },
     phone: 1245888,
   };
-  const user2: person = {
+  const user2: Person = {
     name: "user1",
   };
-  function getAddressCity(person: person) {
+  function getAddressCity(person: Person) {
     return person.address?.city;
   }
   const resUser = getAddressCity(user);
@@ -45,18 +45,15 @@
   function isCat(obj: any) {
     if (obj instanceof Cat) {
       console.log("Yes, it's a cat.");
-      return true;
     } else {
       console.log("No, it's not a cat.");
-      return false;
     }
   }
 
-  // Example usage:
-  const myPet: Cat = new Cat();
+  const Pet: Cat = new Cat();
   const someObject: any = {};
 
-  isCat(myPet);
+  isCat(Pet);
   isCat(someObject);
   //////////////////////////////////////////////// 3
   type someValue = number | string;
@@ -70,9 +67,9 @@
     }
     return total;
   }
-  const data3: someValue[] = [1, "two", 3, "four", 5];
-  const res = sumNumber(data3);
-  console.log(res);
+  const mixedData: someValue[] = [1, "two", 3, "four", 5];
+  const resultMix = sumNumber(mixedData);
+  console.log(resultMix);
   ///////////////////////////////////////////////// 4
   interface Car {
     make: string;
@@ -95,12 +92,12 @@
     year: 2001,
   };
 
-  const userCarData2: Driver = {
+  const userDriverData: Driver = {
     name: "BMW Car",
     licenseNumber: 2001,
   };
 
-  const Car = data(userCarData, userCarData2);
+  const Car = data(userCarData, userDriverData);
   console.log(Car);
   ///////////////////////////////////// 5
   function findFirstOccurrence<T>(array: T[], data: T): number {
@@ -111,13 +108,13 @@
   const numbers: number[] = [1, 2, 3, 4, 5, 2];
   const strings: string[] = ["apple", "banana", "cherry", "date", "apple"];
 
-  const targetNumber = 2;
+  const targetNumber = 20;
   const targetString = "cherry";
 
   const indexInNumbers = findFirstOccurrence(numbers, targetNumber);
   const indexInStrings = findFirstOccurrence(strings, targetString);
 
-  console.log(indexInNumbers); // Output: 1
+  console.log(indexInNumbers);
   console.log(indexInStrings);
   /////////////////////////////// 6
   interface Product {
@@ -125,8 +122,8 @@
     price: number;
     quantity: number;
   }
-
   type array = Product[];
+
   function cost(cart: array): number {
     return cart.reduce(
       (price, product) => price + product.price * product.quantity,
